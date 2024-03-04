@@ -9,4 +9,5 @@ public interface IService<E> {
     List<E> findALl();
     Optional<E> findById(Long id);
     List<E> findByName(String name);
+    List<E> findByRegion(Long id);
 }

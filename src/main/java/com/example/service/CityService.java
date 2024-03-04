@@ -36,4 +36,9 @@ public class CityService implements IService<City> {
     public List<City> findByName(String name) {
         return cityRepository.findAllByNameContaining(name);
     }
+
+    @Override
+    public List<City> findByRegion(Long id) {
+        return cityRepository.findAllByRegionId(id);
+    }
 }

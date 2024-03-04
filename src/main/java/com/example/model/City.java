@@ -10,10 +10,11 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
-    private Region region;
+
     private double acreage;
     private int population;
     private double gdp;
-    private String describe;
+    private String description;
+    @ManyToOne
+    private Region region;
 }

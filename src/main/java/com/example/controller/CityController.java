@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/city")
 public class CityController {
     @Autowired
     private IService<City> cityIService;
@@ -42,8 +42,14 @@ public class CityController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<City>> search(@RequestBody String name) {
+    public ResponseEntity<List<City>> search(@RequestParam String name) {
         List<City> cities = cityIService.findByName(name);
+        return new ResponseEntity<>(cities, HttpStatus.OK);
+    }
+
+    @GetMapping("/region/{id}")
+    public ResponseEntity<List<City>> searchRegion(@PathVariable Long id) {
+        List<City> cities = cityIService.findByRegion(id);
         return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 }
